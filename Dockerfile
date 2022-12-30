@@ -24,7 +24,11 @@ RUN apt-get -y install --no-install-recommends \
    xubuntu-icon-theme \
    ffmpeg pkg-config libatlas-base-dev
 
-RUN apt-get install -y python3-pyaudio libsdl-ttf2.0-0 python3-pygame
+RUN apt-get -y install libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
+RUN apt-get -y install libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev
+RUN apt-get -y install libfreetype6-dev
+RUN apt-get -y install libportmidi-dev
+RUN pip install pygame
 RUN apt-get clean
 
 RUN npm install -g --unsafe-perm ijavascript
