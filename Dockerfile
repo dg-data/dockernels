@@ -23,6 +23,10 @@ RUN apt-get -y install --no-install-recommends \
     python3-pygame
 RUN apt-get clean
 
+RUN pip install --no-cache --upgrade pip && \
+    pip install --no-cache nbgitpuller
+RUN jupyter serverextension enable --py nbgitpuller --sys-prefix
+
 RUN npm install -g --unsafe-perm ijavascript
 
 # install ijsinstall no longer needed
