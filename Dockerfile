@@ -16,13 +16,12 @@ RUN apt-get -y install --no-install-recommends \
     alsa-utils \
     ca-certificates \
     libasound2 libasound2-plugins \
-    pulseaudio pulseaudio-utils portaudio19-dev \
     libportmidi0 libportmidi-dev \
     gcc automake autoconf libtool git make direnv \
     libespeak-ng1 libespeak-ng-dev espeak-ng-data espeak-ng \
     sox swig ffmpeg curl pkg-config libatlas-base-dev
 
-RUN apt-get install python3-pyaudio libsdl-ttf2.0-0 python3-pygame
+RUN apt-get install -y python3-pyaudio libsdl-ttf2.0-0 python3-pygame
 RUN apt-get clean
 
 RUN npm install -g --unsafe-perm ijavascript
