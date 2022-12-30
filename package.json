@@ -1,0 +1,25 @@
+{
+  "name": "docker-jupyter-ijavascript-utils",
+  "version": "1.0.0",
+  "description": "Run Jupyter iJavaScript Utils from within Docker",
+  "main": "index.js",
+  "scripts": {
+    "docker:remove": "docker image rm darkbluestudios/jupyter-ijavascript-utils",
+    "docker:package": "npm run docker:package:arm && npm run docker:package:amd",
+    "docker:package:arm": "docker build -t darkbluestudios/jupyter-ijavascript-utils:arm_1.0.1 -t darkbluestudios/jupyter-ijavascript-utils:latest --platform linux/arm64/v8 .",
+    "docker:package:amd": "docker build -t darkbluestudios/jupyter-ijavascript-utils:amd_1.0.1 --platform linux/amd64 .",
+    "docker:run": "docker run -it --rm -p 8888:8888 darkbluestudios/jupyter-ijavascript-utils:latest",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "d3": "^6.7.0",
+    "i18n-iso-countries": "^7.5.0",
+    "jupyter-ijavascript-utils": "^1.21.1",
+    "node-fetch": "^2.6.7",
+    "noisejs": "^2.1.0",
+    "sane-topojson": "^4.0.0",
+    "topojson-client": "^3.1.0",
+    "uuid": "^9.0.0",
+    "world-atlas": "^2.0.2"
+  }
+}
