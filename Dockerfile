@@ -13,19 +13,17 @@ RUN apt-get install -y gcc g++ make curl cmake
 #RUN apt-get install -yq --no-install-recommends libzmq3-dev
 RUN apt-get install -y libzmq3-dev
 RUN apt-get -y install --no-install-recommends \
-    libsdl2-mixer-dev  \
-    cmake \
-    ffmpeg \
-    gputils \
-    libsdl2-dev  \
-    libsdl2-image-dev \
-    libsdl2-ttf-dev  \
-    python3-pygame
-RUN apt-get clean
+    alsa-utils \
+    ca-certificates \
+    libasound2 libasound2-plugins \
+    pulseaudio pulseaudio-utils portaudio19-dev \
+    libportmidi0 libportmidi-dev \
+    gcc automake autoconf libtool git make direnv \
+    libespeak-ng1 libespeak-ng-dev espeak-ng-data espeak-ng \
+    sox swig ffmpeg curl pkg-config libatlas-base-dev
 
-RUN pip install --no-cache --upgrade pip && \
-    pip install --no-cache nbgitpuller
-RUN jupyter serverextension enable --py nbgitpuller --sys-prefix
+RUN apt-get install python3-pyaudio libsdl-ttf2.0-0 python3-pygame
+RUN apt-get clean
 
 RUN npm install -g --unsafe-perm ijavascript
 
@@ -42,6 +40,9 @@ RUN chown -R "${NB_USER}" "/home/${NB_USER}/.local"
 USER "${NB_USER}"
 
 WORKDIR "/home/${NB_USER}/work"
+RUN pip install --no-cache --upgrade pip && \
+    pip install --no-cache nbgitpuller
+RUN jupyter serverextension enable --py nbgitpuller --sys-prefix
 
 RUN npm install
 
