@@ -13,13 +13,16 @@ RUN apt-get install -y gcc g++ make curl cmake
 #RUN apt-get install -yq --no-install-recommends libzmq3-dev
 RUN apt-get install -y libzmq3-dev
 RUN apt-get -y install --no-install-recommends \
-    alsa-utils \
-    ca-certificates \
-    libasound2 libasound2-plugins \
-    libportmidi0 libportmidi-dev \
-    gcc automake autoconf libtool git make direnv \
-    libespeak-ng1 libespeak-ng-dev espeak-ng-data espeak-ng \
-    sox swig ffmpeg curl pkg-config libatlas-base-dev
+   dbus-x11 \
+   ffmpeg \
+   firefox \
+   xfce4 \
+   xfce4-panel \
+   xfce4-session \
+   xfce4-settings \
+   xorg \
+   xubuntu-icon-theme \
+   ffmpeg pkg-config libatlas-base-dev
 
 RUN apt-get install -y python3-pyaudio libsdl-ttf2.0-0 python3-pygame
 RUN apt-get clean
