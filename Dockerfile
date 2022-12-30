@@ -9,8 +9,18 @@ USER root
 # install zeromq for ijavascript to communicate with jupyter
 RUN apt-get update
 RUN apt-get install -y gcc g++ make curl cmake
+
 #RUN apt-get install -yq --no-install-recommends libzmq3-dev
 RUN apt-get install -y libzmq3-dev
+RUN apt-get -y install --no-install-recommends \
+    libsdl2-mixer-dev  \
+    cmake \
+    ffmpeg \
+    gputils \
+    libsdl2-dev  \
+    libsdl2-image-dev \
+    libsdl2-ttf-dev  \
+    python3-pygame
 RUN apt-get clean
 
 RUN npm install -g --unsafe-perm ijavascript
