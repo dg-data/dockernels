@@ -24,7 +24,7 @@ RUN apt-get -y install --no-install-recommends \
    xubuntu-icon-theme \
    ffmpeg pkg-config libatlas-base-dev
 
-RUN apt-get -y install libsdl-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
+RUN apt-get -y install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
 RUN apt-get -y install libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev
 RUN apt-get -y install libfreetype6-dev
 RUN apt-get -y install libportmidi-dev
