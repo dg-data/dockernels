@@ -38,7 +38,7 @@ RUN ijsinstall
 
 COPY package.json "/home/${NB_USER}/work/package.json"
 COPY package-lock.json "/home/${NB_USER}/work/package-lock.json"
-RUN copy_content.sh
+RUN ./copy_content.sh
 RUN chown -R "${NB_USER}" "/home/${NB_USER}/work"
 RUN chown -R "${NB_USER}" "/home/${NB_USER}/.local"
 
