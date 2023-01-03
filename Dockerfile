@@ -40,7 +40,7 @@ COPY package.json "/home/${NB_USER}/work/package.json"
 COPY package-lock.json "/home/${NB_USER}/work/package-lock.json"
 COPY *.sh /
 # Allow their execution
-RUN chmod -R +x *.sh
+RUN chmod -R +x /*.sh
 RUN /copy_content.sh
 RUN chown -R "${NB_USER}" "/home/${NB_USER}/work"
 RUN chown -R "${NB_USER}" "/home/${NB_USER}/.local"
