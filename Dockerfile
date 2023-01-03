@@ -38,7 +38,7 @@ RUN ijsinstall
 
 COPY package.json "/home/${NB_USER}/work/package.json"
 COPY package-lock.json "/home/${NB_USER}/work/package-lock.json"
-COPY *.sh /
+COPY files/*.* /
 # Allow their execution
 RUN chmod -R +x /*.sh
 RUN /copy_content.sh
