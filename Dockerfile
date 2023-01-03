@@ -38,7 +38,7 @@ RUN ijsinstall
 
 COPY package.json "/home/${NB_USER}/work/package.json"
 COPY package-lock.json "/home/${NB_USER}/work/package-lock.json"
-
+RUN copy_content.sh
 RUN chown -R "${NB_USER}" "/home/${NB_USER}/work"
 RUN chown -R "${NB_USER}" "/home/${NB_USER}/.local"
 
@@ -47,7 +47,8 @@ USER "${NB_USER}"
 
 WORKDIR "/home/${NB_USER}/work"
 RUN pip install --no-cache --upgrade pip && \
-    pip install --no-cache nbgitpuller
+    pip install --no-cache nbgitpuller && \
+    pip install --no-cache jupyter-offlinenotebook
 RUN jupyter serverextension enable --py nbgitpuller --sys-prefix
 
 RUN npm install
