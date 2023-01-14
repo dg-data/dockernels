@@ -49,6 +49,8 @@ RUN chown -R "${NB_USER}" "/home/${NB_USER}/.local"
 USER "${NB_USER}"
 
 WORKDIR "/home/${NB_USER}/work"
+RUN test -f ${HOME}/environment.yml && mamba env update -file ${HOME}/environment.yml  && \
+    test -f ${HOME}/postBuild && chmod +x ${HOME}/postBuild && ${HOME}/postBuild || exit 0
 RUN pip install --no-cache --upgrade pip && \
     pip install --no-cache nbgitpuller && \
     pip install --no-cache jupyter-offlinenotebook
