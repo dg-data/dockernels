@@ -1,2 +1,2 @@
 #!/bin/sh
-cp /pygame.ipynb "/home/${NB_USER}/work/pygame.ipynb" >/dev/null
+cp /*.ipynb "/home/${NB_USER}/work/*.ipynb" >/dev/null
