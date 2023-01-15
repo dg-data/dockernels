@@ -57,7 +57,7 @@ RUN pip install --no-cache --upgrade pip && \
     pip install --no-cache nbgitpuller && \
     pip install --no-cache jupyter-offlinenotebook
 RUN jupyter serverextension enable --py nbgitpuller --sys-prefix
-RUN exec jupyter labextension install @j123npm/qgrid2@1.1.4
+RUN jupyter labextension install @j123npm/qgrid2@1.1.4
 
 RUN npm install
 
