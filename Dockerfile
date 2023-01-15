@@ -57,9 +57,9 @@ RUN pip install --no-cache --upgrade pip && \
     pip install --no-cache nbgitpuller && \
     pip install --no-cache jupyter-offlinenotebook
 RUN jupyter serverextension enable --py nbgitpuller --sys-prefix
+RUN exec jupyter labextension install @j123npm/qgrid2@1.1.4
 
 RUN npm install
 
 # https://discourse.jupyter.org/t/custom-docker-image-spawn-fails-on-mybinder-org/16448/5
 ENV PATH="${HOME}/.local/bin:${PATH}"
-ENTRYPOINT exec jupyter labextension install @j123npm/qgrid2@1.1.4
