@@ -1,4 +1,4 @@
-FROM jupyter/minimal-notebook:lab-3.1.18
+FROM jupyter/minimal-notebook:lab-3.5.3
 
 ARG NB_USER=jovyan
 ARG NB_UID=1000
