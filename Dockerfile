@@ -10,7 +10,7 @@ USER root
 RUN apt-get update
 RUN apt-get install -y gcc g++ make curl cmake
 
-#RUN apt-get install -yq --no-install-recommends libzmq3-dev
+
 RUN apt-get install -y libzmq3-dev
 RUN apt-get -y install --no-install-recommends \
    dbus-x11 \
@@ -27,7 +27,7 @@ RUN apt-get -y install --no-install-recommends \
 RUN apt-get -y install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
 RUN apt-get -y install libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev
 RUN apt-get -y install libfreetype6-dev
-RUN apt-get -y install libportmidi-dev
+RUN apt-get update && apt-get install -y wget bzip2 libxtst6 libgtk-3-0 libx11-xcb-dev libdbus-glib-1-2 libxt6 libpci-dev 
 RUN pip install pygame
 RUN apt-get clean
 
