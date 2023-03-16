@@ -27,10 +27,10 @@ RUN apt-get -y install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev lib
 RUN apt-get -y install libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev
 RUN apt-get -y install libfreetype6-dev
 RUN add-apt-repository ppa:mozillateam/ppa
-RUN echo '
-Package: *
-Pin: release o=LP-PPA-mozillateam
-Pin-Priority: 1001
+RUN echo ' \
+Package: * \
+Pin: release o=LP-PPA-mozillateam \
+Pin-Priority: 1001 \
 ' | sudo tee /etc/apt/preferences.d/mozilla-firefox
 RUN apt install firefox
 
