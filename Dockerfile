@@ -28,9 +28,6 @@ RUN apt-get -y install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev lib
 RUN apt-get -y install libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev
 RUN apt-get -y install libfreetype6-dev
 ENV CHROME_DRIVER_VERSION=111.0.5563.64
-RUN apt-get remove google-chrome-stable
-RUN rm ~/chromedriver_linux64.zip
-RUN rm /usr/local/bin/chromedriver
 RUN apt-get install -y unzip openjdk-8-jre-headless xvfb libxi6 libgconf-2-4
 RUN curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
 RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
