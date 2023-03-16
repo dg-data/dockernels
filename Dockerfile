@@ -32,7 +32,7 @@ Package: * \
 Pin: release o=LP-PPA-mozillateam \
 Pin-Priority: 1001 \
 ' | tee /etc/apt/preferences.d/mozilla-firefox
-RUN apt install firefox
+RUN apt -y install firefox
 
 RUN pip install pygame
 RUN apt-get clean
