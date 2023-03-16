@@ -36,7 +36,7 @@ RUN apt -y install firefox
 
 RUN pip install pygame
 RUN apt-get clean
-RUN nvm install 18.15.0
+
 RUN npm install -g --unsafe-perm ijavascript
 
 # install ijsinstall no longer needed
