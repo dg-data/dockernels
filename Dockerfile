@@ -27,7 +27,25 @@ RUN apt-get -y install --no-install-recommends \
 RUN apt-get -y install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
 RUN apt-get -y install libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev
 RUN apt-get -y install libfreetype6-dev
-RUN apt-get update && apt-get install -y wget bzip2 libxtst6 libgtk-3-0 libx11-xcb-dev libdbus-glib-1-2 libxt6 libpci-dev 
+ENV DRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`
+ENV SELENIUM_STANDALONE_VERSION=3.13.0
+ENV SELENIUM_SUBDIR=$(echo "$SELENIUM_STANDALONE_VERSION" | cut -d"." -f-2)
+
+RUN apt-get remove google-chrome-stable
+RUN rm ~/chromedriver_linux64.zip
+RUN rm /usr/local/bin/chromedriver
+RUN apt-get install -y unzip openjdk-8-jre-headless xvfb libxi6 libgconf-2-4
+RUN curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
+RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
+RUN apt-get -y update
+RUN apt-get -y install chromium-browser
+RUN wget -N http://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -P ~/
+RUN unzip ~/chromedriver_linux64.zip -d ~/
+RUN rm ~/chromedriver_linux64.zip
+RUN mv -f ~/chromedriver /usr/local/bin/chromedriver
+RUN chown root:root /usr/local/bin/chromedriver
+RUN chmod 0755 /usr/local/bin/chromedriver
+
 RUN pip install pygame
 RUN apt-get clean
 
