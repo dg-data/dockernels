@@ -15,7 +15,6 @@ RUN apt-get install -y libzmq3-dev
 RUN apt-get -y install --no-install-recommends \
    dbus-x11 \
    ffmpeg \
-   firefox \
    xfce4 \
    xfce4-panel \
    xfce4-session \
@@ -27,18 +26,7 @@ RUN apt-get -y install --no-install-recommends \
 RUN apt-get -y install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
 RUN apt-get -y install libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev
 RUN apt-get -y install libfreetype6-dev
-ENV CHROME_DRIVER_VERSION=111.0.5563.64
-RUN apt-get install -y unzip openjdk-8-jre-headless xvfb libxi6 libgconf-2-4 gnupg
-RUN curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
-RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list
-RUN apt-get -y update
-RUN apt-get -y install chromium-browser
-RUN wget -N http://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -P ~/
-RUN unzip ~/chromedriver_linux64.zip -d ~/
-RUN rm ~/chromedriver_linux64.zip
-RUN mv -f ~/chromedriver /usr/local/bin/chromedriver
-RUN chown root:root /usr/local/bin/chromedriver
-RUN chmod 0755 /usr/local/bin/chromedriver
+RUN apt-get -qq update && apt-get install --yes --no-install-recommends firefox && apt-get -qq purge && apt-get -qq clean && rm -rf /var/lib/apt/lists/*
 
 RUN pip install pygame
 RUN apt-get clean
