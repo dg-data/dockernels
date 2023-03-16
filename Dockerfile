@@ -27,10 +27,7 @@ RUN apt-get -y install --no-install-recommends \
 RUN apt-get -y install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
 RUN apt-get -y install libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev
 RUN apt-get -y install libfreetype6-dev
-ENV DRIVER_VERSION=111.0.5563.64
-ENV SELENIUM_STANDALONE_VERSION=3.13.0
-ENV SELENIUM_SUBDIR=$(echo "$SELENIUM_STANDALONE_VERSION" | cut -d"." -f-2)
-
+ENV CHROME_DRIVER_VERSION=111.0.5563.64
 RUN apt-get remove google-chrome-stable
 RUN rm ~/chromedriver_linux64.zip
 RUN rm /usr/local/bin/chromedriver
