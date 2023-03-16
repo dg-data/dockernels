@@ -36,7 +36,7 @@ RUN apt -y install firefox
 
 RUN pip install pygame
 RUN apt-get clean
-RUN npm install -g npm@9.6.2
+
 RUN npm install -g --unsafe-perm ijavascript
 
 # install ijsinstall no longer needed
