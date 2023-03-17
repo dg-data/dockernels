@@ -28,11 +28,11 @@ RUN apt-get -y install libsmpeg-dev libportmidi-dev libavformat-dev libswscale-d
 RUN apt-get -y install libfreetype6-dev software-properties-common
 RUN add-apt-repository ppa:mozillateam/ppa
 RUN apt-get autopurge snapd
-RUN cat <<EOF | sudo tee /etc/apt/preferences.d/nosnap.pref \n \
+RUN echo -e '\
 Package: snapd \n \
 Pin: release a=* \n \
-Pin-Priority: -10 \n \
-EOF
+Pin-Priority: -10' \
+| sudo tee /etc/apt/preferences.d/nosnap.pref   
 RUN echo -e 'Package: *\n \
 Pin: release o=LP-PPA-mozillateam\n \
 Pin-Priority: 1001' \
