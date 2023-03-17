@@ -27,11 +27,10 @@ RUN apt-get -y install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev lib
 RUN apt-get -y install libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev
 RUN apt-get -y install libfreetype6-dev software-properties-common
 RUN add-apt-repository ppa:mozillateam/ppa
-RUN echo ' \
-Package: * \
-Pin: release o=LP-PPA-mozillateam \
-Pin-Priority: 1001 \
-' | tee /etc/apt/preferences.d/mozilla-firefox
+RUN echo -e 'Package: *\n \
+Pin: release o=LP-PPA-mozillateam\n \
+Pin-Priority: 1001' \
+ | tee /etc/apt/preferences.d/mozilla-firefox
 RUN apt -y install firefox
 
 RUN pip install pygame
