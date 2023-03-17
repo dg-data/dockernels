@@ -26,14 +26,14 @@ RUN apt-get -y install --no-install-recommends \
 RUN apt-get -y install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
 RUN apt-get -y install libsmpeg-dev libportmidi-dev libavformat-dev libswscale-dev
 RUN apt-get -y install libfreetype6-dev software-properties-common
-RUN apt-get autopurge snapd
+# RUN apt-get autopurge snapd
 RUN echo -e '\
 Package: snapd \n \
 Pin: release a=* \n \
 Pin-Priority: -10' \
 | sudo tee /etc/apt/preferences.d/nosnap.pref   
 RUN echo "deb http://downloads.sourceforge.net/project/ubuntuzilla/mozilla/apt all main" | tee -a /etc/apt/sources.list.d/ubuntuzilla.list > /dev/null
-RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 2667CA5C
+RUN apt-key adv --recv-keys --keyserver keyserver.ubuntu.com:80 2667CA5C
 RUN apt-get update
 RUN apt-get -y install firefox-mozilla-build
 
